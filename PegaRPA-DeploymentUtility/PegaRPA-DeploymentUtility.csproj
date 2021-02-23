@@ -7,4 +7,14 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DeploymentFiles\CLM\Configuration\" />
+    <Folder Include="DeploymentFiles\CLM\Package\" />
+    <Folder Include="DeploymentFiles\Common\" />
+    <Folder Include="DeploymentFiles\ENB\Configuration\" />
+    <Folder Include="DeploymentFiles\ENB\Package\" />
+    <Folder Include="DeploymentFiles\PLM\Configuration\" />
+    <Folder Include="DeploymentFiles\PLM\Package\" />
+  </ItemGroup>
+
 </Project>
