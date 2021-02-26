@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Deployment.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Deployment.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DeploymentFiles\CLM\Configuration\" />
     <Folder Include="DeploymentFiles\CLM\Package\" />
     <Folder Include="DeploymentFiles\Common\" />
@@ -15,6 +23,7 @@
     <Folder Include="DeploymentFiles\ENB\Package\" />
     <Folder Include="DeploymentFiles\PLM\Configuration\" />
     <Folder Include="DeploymentFiles\PLM\Package\" />
+    <Folder Include="Assemblies\" />
   </ItemGroup>
 
 </Project>

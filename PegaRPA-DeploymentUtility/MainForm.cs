@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PegaRPA_DeploymentUtility
+namespace PegaRPA.DeploymentUtility
 {
 	public partial class MainForm : Form
 	{

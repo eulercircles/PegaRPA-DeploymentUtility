@@ -1,5 +1,5 @@
 ﻿
-namespace PegaRPA_DeploymentUtility
+namespace PegaRPA.DeploymentUtility
 {
 	partial class MainForm
 	{

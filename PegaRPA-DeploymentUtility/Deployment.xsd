@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Deployment"
+    targetNamespace="http://tempuri.org/Deployment.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Deployment.xsd"
+    xmlns:mstns="http://tempuri.org/Deployment.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<!-- TODO: Consider removing this and going off of the folder structure for the embedded files. -->
+	<!-- Without this, when developers define their own directives, they will have to make sure their values match their folders. -->
+	<xs:simpleType name="HfEnvironments">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEV" />
+			<xs:enumeration value="QA_ST" />
+			<xs:enumeration value="PP_RT" />
+			<xs:enumeration value="PROD" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- TODO: Consider removing this and going off of the folder structure for the embedded files. -->
+	<!-- Without this, when developers define their own directives, they will have to make sure their values match their folders. -->
+	<xs:simpleType name="RobotTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ANG" />
+			<xs:enumeration value="CLM" />
+			<xs:enumeration value="ENB" />
+			<xs:enumeration value="PLM" />
+			<xs:enumeration value="TEST" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DeploymentOperations">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="File" />
+			<xs:enumeration value="Folder" />
+			<xs:enumeration value="Package" />
+			<xs:enumeration value="Query" />
+			<xs:enumeration value="Task" />
+			<xs:enumeration value="Runtime" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="FileOperationModes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Replace" />
+			<xs:enumeration value="PlaceIfNewerVersion" />
+			<xs:enumeration value="Remove" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SuccessExpectancies">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Critical" />
+			<xs:enumeration value="Important" />
+			<xs:enumeration value="Negligible" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BackupModes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Always" />
+			<xs:enumeration value="Never" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Boolean">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="True" />
+			<xs:enumeration value="False" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="Deployment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Directives" minOccurs="1" maxOccurs="1">
+					
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Directive" minOccurs="0" maxOccurs="unbounded">
+								
+								<xs:complexType>
+									<xs:sequence minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="Operation" minOccurs="0" maxOccurs="unbounded">
+											
+											<xs:complexType>
+												<xs:attribute name="Type" type="mstns:DeploymentOperations" use="required" />
+												<xs:attribute name="ResourcePath" type="xs:string" use="optional" />
+												<xs:attribute name="DestinationPath" type="xs:string" use="required" />
+												<xs:attribute name="Success" type="mstns:SuccessExpectancies" use="required" />
+												<xs:attribute name="BackupMode" type="mstns:BackupModes" use="optional" />
+												<xs:attribute name="CreateDirectory" type="mstns:Boolean" use="optional" />
+												<xs:attribute name="Mode" type="mstns:FileOperationModes" use="optional" />
+											</xs:complexType>
+											
+										</xs:element>
+									</xs:sequence>
+
+									<xs:attribute name="Name" type="xs:string" use="required"/>
+									<xs:attribute name="RobotType" type="mstns:RobotTypes" use="required" />
+									<xs:attribute name="Environment" type="mstns:HfEnvironments" use="required" />
+									<xs:attribute name="BackupRoot" type="xs:anyURI" use="required" />
+								</xs:complexType>
+								
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+					
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
