@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Deployment xmlns="http://tempuri.org/Deployment">
+<Deployment xmlns="http://tempuri.org/Deployment.xsd">
 	<Directives>
+
+		<Directive Name="CLM_DEV" RobotType="CLM" Environment="DEV" BackupRoot="D:\Robotics\CLM\Backup">
+			
+		</Directive>
 		
 	</Directives>
 </Deployment>
